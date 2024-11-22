@@ -27,9 +27,11 @@
 
     <!-- res/layout/example_activity.xml -->
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/main_fragment"
-        android:name="com.yinya.bellidoserranadrianapmdm02.CharactersListFragment"
+        android:id="@+id/nav_host_fragment"
         android:layout_width="match_parent"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:navGraph="@navigation/nav_graph"
+        app:defaultNavHost="true"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -40,11 +40,15 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
-    implementation(libs.fragment.ktx)
     implementation(libs.constraintlayout)
     implementation(libs.legacy.support.v4)
     implementation(libs.recyclerview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    // Fragments
+    implementation(libs.fragment.ktx)
+    // Navigation
+    implementation(libs.navigation.ui.ktx)
+    implementation(libs.navigation.fragment.ktx)
 }
