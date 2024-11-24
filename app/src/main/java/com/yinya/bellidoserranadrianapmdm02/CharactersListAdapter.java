@@ -1,13 +1,11 @@
 package com.yinya.bellidoserranadrianapmdm02;
 
 import android.content.Context;
-import android.telephony.CarrierConfigManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,10 +17,10 @@ import java.util.ArrayList;
 
 public class CharactersListAdapter extends RecyclerView.Adapter<CharactersListAdapter.CharacterViewHolder> {
 
-    private final ArrayList<CharacterCardData> characters;
+    private final ArrayList<CharacterData> characters;
     private final Context context;
 
-    public CharactersListAdapter(ArrayList<CharacterCardData> characters, Context context) {
+    public CharactersListAdapter(ArrayList<CharacterData> characters, Context context) {
         this.characters = characters;
         this.context = context;
     }
@@ -42,14 +40,15 @@ public class CharactersListAdapter extends RecyclerView.Adapter<CharactersListAd
 
     @Override
     public void onBindViewHolder(@NonNull CharacterViewHolder holder, int position) {
-        CharacterCardData currentCharacter = characters.get(position);
-        holder.characterName.setText(currentCharacter.getCharacterName());
+        CharacterData currentCharacter = characters.get(position);
+        holder.characterName.setText(currentCharacter.getName());
         holder.characterImage.setImageResource(currentCharacter.getImage());
-        View.OnClickListener onClickListener = view -> {
-            // Action to be performed on click event
-            Toast.makeText(view.getContext(), "Elemento clickeado", Toast.LENGTH_SHORT).show();
-        };
+        View.OnClickListener onClickListener = view -> itemClicked(currentCharacter, view);
         holder.characterCard.setOnClickListener(onClickListener);
+    }
+
+    private void itemClicked(CharacterData characterData, View view){
+        ((MainActivity) context).showCharacterDetail(characterData, view);
     }
 
     public class CharacterViewHolder extends RecyclerView.ViewHolder {

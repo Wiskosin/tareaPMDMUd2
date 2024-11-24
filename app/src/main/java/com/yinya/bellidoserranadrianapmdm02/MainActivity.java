@@ -2,7 +2,7 @@ package com.yinya.bellidoserranadrianapmdm02;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -18,6 +19,7 @@ import com.google.android.material.appbar.MaterialToolbar;
 
 public class MainActivity extends AppCompatActivity {
 
+    private final String TAG = "MainActivity";
     private NavController navController;
 
     @Override
@@ -56,13 +58,22 @@ public class MainActivity extends AppCompatActivity {
                 AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
                 NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
             } else {
-                Log.e("MainActivity", "NavHostFragment no encontrado.");
+                Log.e(TAG, "NavHostFragment not found.");
             }
         } catch (Exception e) {
-            Log.e("MainActivity", "Error configurando NavController: " + e.getMessage());
+            Log.e(TAG, "Error configuring NavController: " + e.getMessage());
         }
     }
 
+    public void showCharacterDetail(CharacterData characterData, View view) {
+        Bundle bundle = new Bundle();
+        bundle.putInt("image", characterData.getImage());
+        bundle.putString("name", characterData.getName());
+        bundle.putString("description", characterData.getDescription());
+        bundle.putString("skills", characterData.getSkills());
+
+        Navigation.findNavController(view).navigate(R.id.characterDetailsFragment, bundle);
+    }
 
     @Override
     public boolean onSupportNavigateUp() {

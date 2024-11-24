@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">bellidoserranadrianapmdm02</string>
-    <!--     Nombres de los personajes -->
-
     <string-array name="character_names">
         <item name="character_name_1">Mario</item>
         <item name="character_name_2">Luigi</item>
@@ -28,7 +26,7 @@
         <item name="character_name_23">Piranha plant</item>
         <item name="character_name_24">King Boo</item>
     </string-array>
-    <!--     Descripcion de los personajes -->
+
     <string-array name="character_descriptions">
         <item name="character_description_1">Es el protagonista de la serie. Un fontanero italiano valiente y de buen corazón, cuyo objetivo principal es rescatar a la Princesa Peach y proteger el Reino Champiñón de las fuerzas malignas de Bowser. Es conocido por su icónico traje rojo y su bigote.</item>
         <item name="character_description_2">El hermano menor de Mario, también es fontanero. Aunque es más alto y delgado, es algo más tímido y menos seguro que Mario, pero igual de valiente cuando se le necesita. Su traje es verde y también tiene un papel importante en la saga.</item>
@@ -55,10 +53,36 @@
         <item name="character_description_23">Plantas carnívoras que emergen de tuberías y atacan.</item>
         <item name="character_description_24">Líder de los Boos y villano en la serie de Luigi\'s Mansion.</item>
     </string-array>
+
+    <string-array name="character_skills">
+        <item name="character_skill_1">Salta alto, utiliza power-ups, resistencia y valentía</item> <!-- Mario -->
+        <item name="character_skill_2">Salta más alto que Mario, es ágil, tímido pero valiente</item> <!-- Luigi -->
+        <item name="character_skill_3">Flota en el aire, magia de protección</item> <!-- Princesa Peach -->
+        <item name="character_skill_4">Lanza fuego, fuerza bruta, líder estratega</item> <!-- Bowser -->
+        <item name="character_skill_5">Velocidad, leal y fuerte en tareas de apoyo</item> <!-- Toad -->
+        <item name="character_skill_6">Larga lengua para comer enemigos, salta con impulso</item> <!-- Yoshi -->
+        <item name="character_skill_7">Energía, gran atleta, espíritu competitivo</item> <!-- Princesa Daisy -->
+        <item name="character_skill_8">Fuerza física, codicia, protagoniza sus propias aventuras</item> <!-- Wario -->
+        <item name="character_skill_9">Agilidad, movimientos astutos, experto en juegos deportivos</item> <!-- Waluigi -->
+        <item name="character_skill_10">Fuerza descomunal, saltos poderosos, lanzamiento de barriles</item> <!-- Donkey Kong -->
+        <item name="character_skill_11">Velocidad, puede transformarse en Peachette</item> <!-- Toadette -->
+        <item name="character_skill_12">Magia estelar, control de los Lumas, flota en el aire</item> <!-- Rosalina -->
+        <item name="character_skill_13">Ayuda a Rosalina, se transforma en objetos celestiales</item> <!-- Luma -->
+        <item name="character_skill_14">Pintura mágica, inteligencia, destreza en combate</item> <!-- Bowser Jr. -->
+        <item name="character_skill_15">Hechizos mágicos, teletransportación</item> <!-- Kamek -->
+        <item name="character_skill_16">Lleva máscaras, variados roles y ataques</item> <!-- Shy Guy -->
+        <item name="character_skill_17">Se esconde en su caparazón, sigue patrones de movimiento</item> <!-- Koopa Troopa -->
+        <item name="character_skill_18">Ataque sencillo, camina en línea recta</item> <!-- Goomba -->
+        <item name="character_skill_19">Lanza Spiny, actúa como cámara en algunos juegos</item> <!-- Lakitu -->
+        <item name="character_skill_20">Ataca mordiendo, se mueve rápidamente si se libera</item> <!-- Chain Chomp -->
+        <item name="character_skill_21">Persigue solo cuando no lo miran, se desvanece</item> <!-- Boo -->
+        <item name="character_skill_22">Vuela en línea recta, velocidad rápida</item> <!-- Bullet Bill -->
+        <item name="character_skill_23">Muerde desde tuberías, a veces lanza fuego</item> <!-- Piranha Plant -->
+        <item name="character_skill_24">Inmortal en ciertas formas, magia espectral</item> <!-- King Boo -->
+    </string-array>
+
     <!-- Main activity   -->
     <string name="main_appbar_title">SM Characters</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="main_recycler_view_card_view_title">Titulo de la card view</string>
     <string name="main_recycler_view_card_view_image">Imagen del personaje</string>
 </resources>

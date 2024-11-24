@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,22 +24,18 @@ public class CharactersListFragment extends Fragment {
     private FragmentCharactersListBinding binding;
     private RecyclerView charactersRv;
 
-    public CharactersListFragment() {
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentCharactersListBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         charactersRv = binding.rvCharactersList;
-        ArrayList<CharacterCardData> charactersList = initializeCharactersList();
+        ArrayList<CharacterData> charactersList = initializeCharactersList();
         CharactersListAdapter adapter = initializeAdapter(charactersList);
         LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext());
         charactersRv.setLayoutManager(layoutManager);
@@ -46,8 +43,8 @@ public class CharactersListFragment extends Fragment {
         return view;
     }
 
-    private ArrayList<CharacterCardData> initializeCharactersList() {
-        ArrayList<CharacterCardData> charactersList = new ArrayList();
+    private ArrayList<CharacterData> initializeCharactersList() {
+        ArrayList<CharacterData> charactersList = new ArrayList<>();
 
         int[] imageIds = {
                 R.drawable.character_1, R.drawable.character_2, R.drawable.character_3,
@@ -57,22 +54,26 @@ public class CharactersListFragment extends Fragment {
                 R.drawable.character_13, R.drawable.character_14, R.drawable.character_15,
                 R.drawable.character_16, R.drawable.character_17, R.drawable.character_18,
                 R.drawable.character_19, R.drawable.character_20, R.drawable.character_21,
-                R.drawable.character_22, R.drawable.character_23, R.drawable.character_24
-        };
-        String[] characterNames = getResources().getStringArray(R.array.character_names);
+                R.drawable.character_22, R.drawable.character_23, R.drawable.character_24};
 
-        if (imageIds.length != characterNames.length) {
-            throw new IllegalStateException("El número de imágenes y nombres no coincide.");
+        String[] characterNames = getResources().getStringArray(R.array.character_names);
+        String[] characterDescriptions = getResources().getStringArray(R.array.character_descriptions);
+        String[] characterSkills = getResources().getStringArray(R.array.character_skills);
+
+        if (imageIds.length != characterNames.length ||
+                characterDescriptions.length != characterNames.length ||
+                characterSkills.length != characterNames.length) {
+            throw new IllegalStateException("Different data length");
         }
 
         for (int i = 0; i < imageIds.length; i++) {
-            charactersList.add(new CharacterCardData(imageIds[i], characterNames[i]));
+            charactersList.add(new CharacterData(imageIds[i], characterNames[i], characterDescriptions[i], characterSkills[i]));
         }
-
         return charactersList;
     }
 
-    private CharactersListAdapter initializeAdapter(ArrayList<CharacterCardData> charactersList) {
+    @NonNull
+    private CharactersListAdapter initializeAdapter(ArrayList<CharacterData> charactersList) {
         CharactersListAdapter adapter = new CharactersListAdapter(charactersList, requireContext());
         return adapter;
     }
