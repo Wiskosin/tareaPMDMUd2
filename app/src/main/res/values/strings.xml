@@ -89,4 +89,5 @@
 
     <!-- Character details -->
     <string name="character_detail_toast">Se ha seleccionado el personaje %s</string>
+    <string name="context_menu_about_me">Acerca de...</string>
 </resources>

@@ -2,7 +2,10 @@ package com.yinya.bellidoserranadrianapmdm02;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +17,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.appcompat.widget.Toolbar.OnMenuItemClickListener;
 
 import com.google.android.material.appbar.MaterialToolbar;
 
@@ -30,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         setInsets();
         setDefaultActionBar();
         setNavController();
-
     }
 
     /**
@@ -47,6 +50,21 @@ public class MainActivity extends AppCompatActivity {
     private void setDefaultActionBar() {
         MaterialToolbar toolbar = findViewById(R.id.main_appbar);
         setSupportActionBar(toolbar);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.context_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.about_me) { // Action when "About Me" item is selected
+            Toast.makeText(this, "About Me selected", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void setNavController() {
