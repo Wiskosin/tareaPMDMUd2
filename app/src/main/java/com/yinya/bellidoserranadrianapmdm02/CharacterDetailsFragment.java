@@ -1,13 +1,12 @@
 package com.yinya.bellidoserranadrianapmdm02;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
 
 import com.yinya.bellidoserranadrianapmdm02.databinding.FragmentCharacterDetailsBinding;
 
@@ -32,13 +31,26 @@ public class CharacterDetailsFragment extends Fragment {
         binding = FragmentCharacterDetailsBinding.inflate(inflater, container, false);
         CharacterData characterDetails = getCharacterDetails();
         bindCharacterDetails(characterDetails);
-        //TODO Pasar a string.xml
-        Toast.makeText(requireContext(), "Se ha seleccionado el personaje "+characterDetails.getName(), Toast.LENGTH_SHORT).show();
+        String message = getToastMessage(characterDetails.getName());
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show();
         return binding.getRoot();
-
     }
 
-    private CharacterData getCharacterDetails(){
+    /**
+     * Generates a formatted toast message using the provided name.
+     * <p>
+     * This method retrieves a string resource from the `strings.xml` file that contains a placeholder
+     * for a variable. The provided `name` parameter is used to replace the placeholder, resulting
+     * in a dynamically formatted message.
+     *
+     * @param name the value to replace the placeholder in the string resource.
+     * @return a formatted string with the `name` inserted in the appropriate position.
+     */
+    private String getToastMessage(String name) {
+        return requireContext().getString(R.string.character_detail_toast, name);
+    }
+
+    private CharacterData getCharacterDetails() {
         int image = getArguments().getInt("image");
         String name = getArguments().getString("name");
         String description = getArguments().getString("description");
@@ -46,7 +58,7 @@ public class CharacterDetailsFragment extends Fragment {
         return new CharacterData(image, name, description, skills);
     }
 
-    private void bindCharacterDetails(CharacterData characterDetails){
+    private void bindCharacterDetails(CharacterData characterDetails) {
         binding.tvCharacterDetailsName.setText(characterDetails.getName());
         binding.ivCharacterDetails.setImageResource(characterDetails.getImage());
         binding.tvCharacterDetailsDescription.setText(characterDetails.getDescription());
