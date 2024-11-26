@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.yinya.bellidoserranadrianapmdm02.databinding.FragmentCharactersListBinding;
 
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ public class CharactersListFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext());
         charactersRv.setLayoutManager(layoutManager);
         charactersRv.setAdapter(adapter);
+        Snackbar.make(requireActivity().findViewById(R.id.main), getSnackBarMessage(), Snackbar.LENGTH_LONG).show();
         return view;
     }
 
@@ -78,9 +80,14 @@ public class CharactersListFragment extends Fragment {
         return adapter;
     }
 
+    private String getSnackBarMessage() {
+        return requireContext().getString(R.string.main_snackbar_welcome_message);
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
+
 }

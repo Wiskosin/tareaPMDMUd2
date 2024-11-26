@@ -85,6 +85,7 @@
     <string name="main_appbar_title">SM Characters</string>
     <string name="main_recycler_view_card_view_title">Titulo de la card view</string>
     <string name="main_recycler_view_card_view_image">Imagen del personaje</string>
+    <string name="main_snackbar_welcome_message">Bienvenidos al mundo de Mario</string>
 
     <!-- Character details -->
     <string name="character_detail_toast">Se ha seleccionado el personaje %s</string>
