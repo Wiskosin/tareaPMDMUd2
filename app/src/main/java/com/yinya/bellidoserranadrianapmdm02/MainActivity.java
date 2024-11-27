@@ -1,11 +1,11 @@
 package com.yinya.bellidoserranadrianapmdm02;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,9 +17,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.appcompat.widget.Toolbar.OnMenuItemClickListener;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -61,7 +61,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.about_me) { // Action when "About Me" item is selected
-            Toast.makeText(this, "About Me selected", Toast.LENGTH_SHORT).show();
+            new MaterialAlertDialogBuilder(this)
+                    .setTitle(getResources().getString(R.string.context_menu_about_me))
+                    .setMessage(getResources().getString(R.string.context_menu_alert_dialog_text))
+                    .setNeutralButton(R.string.context_menu_neutral_button, (dialog, which) -> dialog.dismiss())
+                    .show();
             return true;
         }
         return super.onOptionsItemSelected(item);
