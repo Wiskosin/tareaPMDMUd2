@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="character_names">
+        <item name="character_name_1">Mario</item>
+        <item name="character_name_2">Luigi</item>
+        <item name="character_name_3">Princess Peach</item>
+        <item name="character_name_4">Bowser</item>
+        <item name="character_name_5">Toad</item>
+        <item name="character_name_6">Yoshi</item>
+        <item name="character_name_7">Princess Daisy</item>
+        <item name="character_name_8">Wario</item>
+        <item name="character_name_9">Waluigi</item>
+        <item name="character_name_10">Donkey Kong</item>
+        <item name="character_name_11">Toadette</item>
+        <item name="character_name_12">Rosalina</item>
+        <item name="character_name_13">Luma</item>
+        <item name="character_name_14">Bowser Jr.</item>
+        <item name="character_name_15">Kamek</item>
+        <item name="character_name_16">Shy Guy</item>
+        <item name="character_name_17">Koopa Troopa</item>
+        <item name="character_name_18">Goomba</item>
+        <item name="character_name_19">Lakitu</item>
+        <item name="character_name_20">Chain Chomp</item>
+        <item name="character_name_21">Boo</item>
+        <item name="character_name_22">Bullet Bill</item>
+        <item name="character_name_23">Piranha Plant</item>
+        <item name="character_name_24">King Boo</item>
+    </string-array>
+
+    <string-array name="character_descriptions">
+        <item name="character_description_1">He is the protagonist of the series. A brave and kind-hearted Italian plumber whose main goal is to rescue Princess Peach and protect the Mushroom Kingdom from Bowser\'s evil forces. Known for his iconic red outfit and mustache.</item>
+        <item name="character_description_2">Mario\'s younger brother, also a plumber. Taller and thinner, Luigi is a bit shy and less confident than Mario, but just as brave when needed. His outfit is green, and he also plays a major role in the series.</item>
+        <item name="character_description_3">The princess of the Mushroom Kingdom. Often the target of Bowser\'s kidnappings, but has proven to be resourceful and brave on several occasions, joining Mario and other characters in adventures.</item>
+        <item name="character_description_4">The main antagonist of the series. He is the King of the Koopas, a species of turtle-like creatures with spiked shells. He constantly tries to capture Princess Peach and conquer the Mushroom Kingdom, but his plans are thwarted by Mario and his friends.</item>
+        <item name="character_description_5">A loyal servant of Princess Peach and a resident of the Mushroom Kingdom. Toad is known for his mushroom-shaped head and his cheerful, helpful attitude. He has also participated in adventures to help Mario on occasion.</item>
+        <item name="character_description_6">A friendly and loyal dinosaur, who serves as Mario\'s mount and companion in many of his adventures. Yoshi can use his long tongue to catch enemies and turn them into eggs. He is loved for his cheerful personality.</item>
+        <item name="character_description_7">Princess of Sarasaland. Though she appears less than Peach, she is a close friend and is known for her energetic and cheerful personality. She has participated in various sports and racing games in the franchise.</item>
+        <item name="character_description_8">A character who started as Mario\'s rival but became the protagonist of his own series. Greedy, strong, and somewhat selfish, with a robust physique and a signature zigzag mustache.</item>
+        <item name="character_description_9">The companion and supposed brother of Wario. Though primarily associated with sports and party games, he is known for his clever attitude and his tall, slim appearance. He is Luigi\'s rival.</item>
+        <item name="character_description_10">Originally the antagonist of the arcade game Donkey Kong, where Mario first appeared. Over time, he became his own character with his own series, although he sometimes appears as an ally in Mario games.</item>
+        <item name="character_description_11">A female version of Toad, appearing in several games in the franchise.</item>
+        <item name="character_description_12">Guardian of the cosmos and mother of the Lumas, first appeared in Super Mario Galaxy.</item>
+        <item name="character_description_13">Star-like creatures that accompany Rosalina.</item>
+        <item name="character_description_14">Bowser\'s son, helps his father in his plans to conquer the Mushroom Kingdom.</item>
+        <item name="character_description_15">Magikoopa and Bowser\'s right-hand, an expert in magic.</item>
+        <item name="character_description_16">Shy creatures with a mask that appear in several games.</item>
+        <item name="character_description_17">Turtles that serve Bowser; some are allies of Mario in certain games.</item>
+        <item name="character_description_18">Basic enemies and common in the Mushroom Kingdom.</item>
+        <item name="character_description_19">A character that flies on a cloud and throws enemies.</item>
+        <item name="character_description_20">Enemies with a ball-like appearance, chains, and sharp teeth.</item>
+        <item name="character_description_21">Ghosts that chase Mario only when he is not looking at them.</item>
+        <item name="character_description_22">Bullet-like projectiles shot from cannons.</item>
+        <item name="character_description_23">Carnivorous plants that emerge from pipes and attack.</item>
+        <item name="character_description_24">Leader of the Boos and villain in the Luigi\'s Mansion series.</item>
+    </string-array>
+
+    <string-array name="character_skills">
+        <item name="character_skill_1">Jumps high, uses power-ups, stamina, and bravery</item> <!-- Mario -->
+        <item name="character_skill_2">Jumps higher than Mario, agile, shy but brave</item> <!-- Luigi -->
+        <item name="character_skill_3">Floats in the air, protection magic</item> <!-- Princess Peach -->
+        <item name="character_skill_4">Throws fire, brute strength, strategic leader</item> <!-- Bowser -->
+        <item name="character_skill_5">Speed, loyal, strong in support tasks</item> <!-- Toad -->
+        <item name="character_skill_6">Long tongue to eat enemies, jumps with momentum</item> <!-- Yoshi -->
+        <item name="character_skill_7">Energy, great athlete, competitive spirit</item> <!-- Princess Daisy -->
+        <item name="character_skill_8">Physical strength, greed, stars in his own adventures</item> <!-- Wario -->
+        <item name="character_skill_9">Agility, clever moves, expert in sports games</item> <!-- Waluigi -->
+        <item name="character_skill_10">Enormous strength, powerful jumps, barrel throwing</item> <!-- Donkey Kong -->
+        <item name="character_skill_11">Speed, can transform into Peachette</item> <!-- Toadette -->
+        <item name="character_skill_12">Star magic, control of the Lumas, floats in the air</item> <!-- Rosalina -->
+        <item name="character_skill_13">Helps Rosalina, transforms into celestial objects</item> <!-- Luma -->
+        <item name="character_skill_14">Magical painting, intelligence, combat skill</item> <!-- Bowser Jr. -->
+        <item name="character_skill_15">Magic spells, teleportation</item> <!-- Kamek -->
+        <item name="character_skill_16">Wears masks, various roles and attacks</item> <!-- Shy Guy -->
+        <item name="character_skill_17">Hides in his shell, follows movement patterns</item> <!-- Koopa Troopa -->
+        <item name="character_skill_18">Simple attack, walks in a straight line</item> <!-- Goomba -->
+        <item name="character_skill_19">Throws Spiny, acts as a camera in some games</item> <!-- Lakitu -->
+        <item name="character_skill_20">Attacks by biting, moves quickly when freed</item> <!-- Chain Chomp -->
+        <item name="character_skill_21">Chases only when not being watched, fades away</item> <!-- Boo -->
+        <item name="character_skill_22">Flies in a straight line, fast speed</item> <!-- Bullet Bill -->
+        <item name="character_skill_23">Bites from pipes, sometimes throws fire</item> <!-- Piranha Plant -->
+        <item name="character_skill_24">Immortal in certain forms, spectral magic</item> <!-- King Boo -->
+    </string-array>
+
+    <!-- Main activity -->
+    <string name="main_appbar_title">SM Characters</string>
+    <string name="main_recycler_view_card_view_title">Card View Title</string>
+    <string name="main_recycler_view_card_view_image">Character Image</string>
+    <string name="main_snackbar_welcome_message">Welcome to the world of Mario</string>
+
+    <!-- Character details -->
+    <string name="character_detail_toast">Character %s selected</string>
+
+    <!-- Context menu -->
+    <string name="context_menu_about_me">About...</string>
+    <string name="context_menu_alert_dialog_text">App developed by Adriana Bellido Serran 1.0.</string>
+    <string name="context_menu_neutral_button">Close</string>
+    <string name="navigation_drawer_menu_item1">Home</string>
+    <string name="navigation_drawer_menu_item2">Settings</string>
+    <string name="navigation_drawer_menu_item3">Language</string>
+
+</resources>

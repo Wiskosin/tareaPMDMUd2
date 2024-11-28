@@ -1,6 +1,5 @@
 package com.yinya.bellidoserranadrianapmdm02;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -21,11 +20,23 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+/**
+ * Main activity class that serves as the entry point for the app.
+ * This activity manages the navigation, app bar configuration, and UI interactions.
+ */
 public class MainActivity extends AppCompatActivity {
 
     private final String TAG = "MainActivity";
     private NavController navController;
 
+    /**
+     * Called when the activity is created.
+     * Initializes the activity's layout, sets the insets for safe areas,
+     * sets the action bar, and configures the navigation controller.
+     *
+     * @param savedInstanceState If the activity is being recreated, this Bundle contains
+     *                           previously saved data.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Function to set the safe areas insets (padding).
+     * Sets the insets for the safe areas, applying padding to the view based on the system bars.
      */
     private void setInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -47,17 +58,32 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Sets the default action bar using the material toolbar.
+     */
     private void setDefaultActionBar() {
         MaterialToolbar toolbar = findViewById(R.id.main_appbar);
         setSupportActionBar(toolbar);
     }
 
+    /**
+     * Inflates the options menu from the specified XML file.
+     *
+     * @param menu The options menu in which items are placed.
+     * @return true if the menu was successfully inflated; false otherwise.
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.context_menu, menu);
         return true;
     }
 
+    /**
+     * Handles item selections from the options menu.
+     *
+     * @param item The menu item that was selected.
+     * @return true if the item was handled; false otherwise.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.about_me) { // Action when "About Me" item is selected
@@ -71,6 +97,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Sets up the navigation controller for the app, configuring the action bar to interact
+     * with the navigation graph.
+     */
     private void setNavController() {
         try {
             NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
@@ -88,6 +118,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    /**
+     * Navigates to the character details fragment, passing the character data as arguments.
+     *
+     * @param characterData The character's data to display in the details fragment.
+     * @param view          The view that was clicked to trigger the navigation.
+     */
     public void showCharacterDetail(CharacterData characterData, View view) {
         Bundle bundle = new Bundle();
         bundle.putInt("image", characterData.getImage());
@@ -98,6 +135,12 @@ public class MainActivity extends AppCompatActivity {
         Navigation.findNavController(view).navigate(R.id.characterDetailsFragment, bundle);
     }
 
+    /**
+     * Called when the user presses the up button in the action bar.
+     * Navigates up in the navigation stack.
+     *
+     * @return true if navigation is handled; false otherwise.
+     */
     @Override
     public boolean onSupportNavigateUp() {
         return navController.navigateUp() || super.onSupportNavigateUp();

@@ -16,10 +16,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/context_menu"
-        app:navigationIcon="@drawable/ic_arrow_menu_open"
+        app:navigationIcon="@drawable/ic_menu_hamburger"
         app:title="@string/main_appbar_title" />
 
-    <!-- res/layout/example_activity.xml -->
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -33,5 +33,13 @@
         app:layout_constraintTop_toBottomOf="@+id/main_appbar"
         app:layout_constraintVertical_bias="0.0"
         app:navGraph="@navigation/nav_graph" />
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/navigation_drawer_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

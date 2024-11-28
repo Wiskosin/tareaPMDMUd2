@@ -16,20 +16,34 @@ import com.yinya.bellidoserranadrianapmdm02.databinding.FragmentCharactersListBi
 import java.util.ArrayList;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link CharactersListFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * A simple {@link Fragment} subclass that displays a list of characters using a RecyclerView.
  */
 public class CharactersListFragment extends Fragment {
 
     private FragmentCharactersListBinding binding;
     private RecyclerView charactersRv;
 
+    /**
+     * Called when the fragment is created.
+     * Use this method to initialize components that do not require the fragment's view.
+     *
+     * @param savedInstanceState If the fragment is being recreated, this Bundle contains
+     *                           previously saved data.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     * Called to create and return the view hierarchy associated with the fragment.
+     *
+     * @param inflater           A {@link LayoutInflater} to inflate the fragment's layout.
+     * @param container          The parent view that this fragment's UI should be attached to.
+     * @param savedInstanceState If the fragment is being recreated, this Bundle contains
+     *                           previously saved data.
+     * @return The root view of the fragment's layout.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -45,6 +59,11 @@ public class CharactersListFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Initializes and populates the list of characters to be displayed in the RecyclerView.
+     *
+     * @return An {@link ArrayList} of {@link CharacterData} objects containing character details.
+     */
     private ArrayList<CharacterData> initializeCharactersList() {
         ArrayList<CharacterData> charactersList = new ArrayList<>();
 
@@ -74,16 +93,31 @@ public class CharactersListFragment extends Fragment {
         return charactersList;
     }
 
+    /**
+     * Initializes the adapter for the RecyclerView with the provided character list.
+     *
+     * @param charactersList An {@link ArrayList} of {@link CharacterData} objects.
+     * @return A {@link CharactersListAdapter} instance.
+     */
     @NonNull
     private CharactersListAdapter initializeAdapter(ArrayList<CharacterData> charactersList) {
         CharactersListAdapter adapter = new CharactersListAdapter(charactersList, requireContext());
         return adapter;
     }
 
+    /**
+     * Retrieves the message to be displayed in a Snackbar when the fragment is created.
+     *
+     * @return A string containing the Snackbar message.
+     */
     private String getSnackBarMessage() {
         return requireContext().getString(R.string.main_snackbar_welcome_message);
     }
 
+    /**
+     * Called when the fragment's view is destroyed.
+     * Cleans up binding references to avoid memory leaks.
+     */
     @Override
     public void onDestroyView() {
         super.onDestroyView();
