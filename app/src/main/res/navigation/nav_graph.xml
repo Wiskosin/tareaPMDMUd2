@@ -3,22 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/charactersListFragment">
+    app:startDestination="@id/characters_list_fragment">
 
     <fragment
-        android:id="@+id/charactersListFragment"
+        android:id="@+id/characters_list_fragment"
         android:name="com.yinya.bellidoserranadrianapmdm02.CharactersListFragment"
         android:label="@string/main_appbar_title"
-        tools:layout="@layout/fragment_characters_list" >
+        tools:layout="@layout/fragment_characters_list">
         <action
             android:id="@+id/action_charactersListFragment_to_characterDetailsFragment"
-            app:destination="@id/characterDetailsFragment" />
+            app:destination="@id/character_details_fragment" />
     </fragment>
 
+    <!-- TODO cambiar nombre del label dinámicamente -->
     <fragment
-        android:id="@+id/characterDetailsFragment"
+        android:id="@+id/character_details_fragment"
         android:name="com.yinya.bellidoserranadrianapmdm02.CharacterDetailsFragment"
         android:label="fragment_character_details"
-        tools:layout="@layout/fragment_character_details"/>
+        tools:layout="@layout/fragment_character_details" />
+
+    <fragment
+        android:id="@+id/settings_fragment"
+        android:name="com.yinya.bellidoserranadrianapmdm02.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 
 </navigation>

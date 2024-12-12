@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -55,8 +56,12 @@ public class CharactersListFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext());
         charactersRv.setLayoutManager(layoutManager);
         charactersRv.setAdapter(adapter);
-        Snackbar.make(requireActivity().findViewById(R.id.main), getSnackBarMessage(), Snackbar.LENGTH_LONG).show();
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        Snackbar.make(view, getSnackBarMessage(), Snackbar.LENGTH_LONG).show();
     }
 
     /**

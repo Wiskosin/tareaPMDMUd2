@@ -11,14 +11,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.navigation.NavigationView;
+import com.yinya.bellidoserranadrianapmdm02.databinding.ActivityMainBinding;
 
 /**
  * Main activity class that serves as the entry point for the app.
@@ -28,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
     private final String TAG = "MainActivity";
     private NavController navController;
+    private ActivityMainBinding binding;
+    private AppBarConfiguration appBarDrawerConfiguration;
 
     /**
      * Called when the activity is created.
@@ -41,21 +47,47 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+
+        setContentView(view);
         setInsets();
         setDefaultActionBar();
         setNavController();
+        setNavigationDrawer();
     }
 
     /**
      * Sets the insets for the safe areas, applying padding to the view based on the system bars.
      */
     private void setInsets() {
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.includeMainContent.mainCoordinator, (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+
+            // Set insets to the toolbar for the main view (CoordinatorLayout)
+            v.setPadding(
+                    systemBars.left,
+                    systemBars.top,
+                    systemBars.right,
+                    0
+            );
+            binding.navDrawer.setPadding(systemBars.left,
+                    0,
+                    systemBars.right,
+                    systemBars.bottom);
             return insets;
         });
+    }
+
+    private void setNavigationDrawer() {
+        DrawerLayout drawer = binding.drawerLayout;
+        NavigationView navDrawer = binding.navDrawer;
+        appBarDrawerConfiguration = new AppBarConfiguration.Builder(
+                R.id.characters_list_fragment, R.id.settings_fragment)
+                .setOpenableLayout(drawer)
+                .build();
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarDrawerConfiguration);
+        NavigationUI.setupWithNavController(navDrawer, navController);
     }
 
     /**
@@ -64,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
     private void setDefaultActionBar() {
         MaterialToolbar toolbar = findViewById(R.id.main_appbar);
         setSupportActionBar(toolbar);
+        AppBarLayout appBarLayout = findViewById(R.id.main_appbar_layout);
+        appBarLayout.setLiftOnScroll(false);
     }
 
     /**
@@ -132,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
         bundle.putString("description", characterData.getDescription());
         bundle.putString("skills", characterData.getSkills());
 
-        Navigation.findNavController(view).navigate(R.id.characterDetailsFragment, bundle);
+        Navigation.findNavController(view).navigate(R.id.character_details_fragment, bundle);
     }
 
     /**
@@ -143,6 +177,6 @@ public class MainActivity extends AppCompatActivity {
      */
     @Override
     public boolean onSupportNavigateUp() {
-        return navController.navigateUp() || super.onSupportNavigateUp();
+        return NavigationUI.navigateUp(navController, appBarDrawerConfiguration) || super.onSupportNavigateUp();
     }
 }
