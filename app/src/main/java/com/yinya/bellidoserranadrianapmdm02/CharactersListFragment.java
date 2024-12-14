@@ -18,6 +18,8 @@ import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass that displays a list of characters using a RecyclerView.
+ * This fragment initializes and populates a list of characters and allows the user to interact
+ * with the data through a scrollable view.
  */
 public class CharactersListFragment extends Fragment {
 
@@ -29,7 +31,7 @@ public class CharactersListFragment extends Fragment {
      * Use this method to initialize components that do not require the fragment's view.
      *
      * @param savedInstanceState If the fragment is being recreated, this Bundle contains
-     *                           previously saved data.
+     *                           previously saved state data.
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,11 +40,13 @@ public class CharactersListFragment extends Fragment {
 
     /**
      * Called to create and return the view hierarchy associated with the fragment.
+     * This method inflates the layout, initializes the RecyclerView, sets up its adapter,
+     * and binds the data.
      *
      * @param inflater           A {@link LayoutInflater} to inflate the fragment's layout.
      * @param container          The parent view that this fragment's UI should be attached to.
      * @param savedInstanceState If the fragment is being recreated, this Bundle contains
-     *                           previously saved data.
+     *                           previously saved state data.
      * @return The root view of the fragment's layout.
      */
     @Override
@@ -59,6 +63,14 @@ public class CharactersListFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Called after the fragment's view has been created.
+     * Displays a welcome message to the user using a Snackbar.
+     *
+     * @param view               The root view of the fragment.
+     * @param savedInstanceState If the fragment is being recreated, this Bundle contains
+     *                           previously saved state data.
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Snackbar.make(view, getSnackBarMessage(), Snackbar.LENGTH_LONG).show();
@@ -66,8 +78,11 @@ public class CharactersListFragment extends Fragment {
 
     /**
      * Initializes and populates the list of characters to be displayed in the RecyclerView.
+     * This method retrieves character data from resources and validates that all arrays have
+     * the same length. If the lengths differ, an {@link IllegalStateException} is thrown.
      *
      * @return An {@link ArrayList} of {@link CharacterData} objects containing character details.
+     * @throws IllegalStateException If the lengths of the character data arrays do not match.
      */
     private ArrayList<CharacterData> initializeCharactersList() {
         ArrayList<CharacterData> charactersList = new ArrayList<>();
@@ -101,8 +116,8 @@ public class CharactersListFragment extends Fragment {
     /**
      * Initializes the adapter for the RecyclerView with the provided character list.
      *
-     * @param charactersList An {@link ArrayList} of {@link CharacterData} objects.
-     * @return A {@link CharactersListAdapter} instance.
+     * @param charactersList An {@link ArrayList} of {@link CharacterData} objects to be displayed.
+     * @return A configured {@link CharactersListAdapter} for the RecyclerView.
      */
     @NonNull
     private CharactersListAdapter initializeAdapter(ArrayList<CharacterData> charactersList) {
@@ -113,7 +128,7 @@ public class CharactersListFragment extends Fragment {
     /**
      * Retrieves the message to be displayed in a Snackbar when the fragment is created.
      *
-     * @return A string containing the Snackbar message.
+     * @return A string containing the welcome message for the user.
      */
     private String getSnackBarMessage() {
         return requireContext().getString(R.string.main_snackbar_welcome_message);

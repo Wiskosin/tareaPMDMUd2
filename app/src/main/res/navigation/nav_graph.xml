@@ -15,17 +15,16 @@
             app:destination="@id/character_details_fragment" />
     </fragment>
 
-    <!-- TODO cambiar nombre del label dinámicamente -->
     <fragment
         android:id="@+id/character_details_fragment"
         android:name="com.yinya.bellidoserranadrianapmdm02.CharacterDetailsFragment"
-        android:label="fragment_character_details"
+        android:label="@string/character_detail_title"
         tools:layout="@layout/fragment_character_details" />
 
     <fragment
         android:id="@+id/settings_fragment"
         android:name="com.yinya.bellidoserranadrianapmdm02.SettingsFragment"
-        android:label="fragment_settings"
+        android:label="@string/navigation_drawer_menu_settings"
         tools:layout="@layout/fragment_settings" />
 
 </navigation>

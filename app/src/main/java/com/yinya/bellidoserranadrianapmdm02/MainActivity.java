@@ -7,7 +7,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -26,19 +25,21 @@ import com.yinya.bellidoserranadrianapmdm02.databinding.ActivityMainBinding;
 
 /**
  * Main activity class that serves as the entry point for the app.
- * This activity manages the navigation, app bar configuration, and UI interactions.
+ * This activity manages the navigation, app bar configuration, and UI interactions,
+ * including a navigation drawer and an action bar with options.
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
-    private final String TAG = "MainActivity";
+    private static final String TAG = "MainActivity";
+
     private NavController navController;
     private ActivityMainBinding binding;
     private AppBarConfiguration appBarDrawerConfiguration;
 
     /**
      * Called when the activity is created.
-     * Initializes the activity's layout, sets the insets for safe areas,
-     * sets the action bar, and configures the navigation controller.
+     * This method sets up the UI components, enables edge-to-edge insets, initializes the
+     * navigation controller, and configures the navigation drawer and action bar.
      *
      * @param savedInstanceState If the activity is being recreated, this Bundle contains
      *                           previously saved data.
@@ -58,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Sets the insets for the safe areas, applying padding to the view based on the system bars.
+     * Sets the insets for the safe areas, ensuring proper padding for views based on system bars
+     * such as the status bar, navigation bar, and cutouts.
      */
     private void setInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(binding.includeMainContent.mainCoordinator, (v, insets) -> {
@@ -79,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Configures the navigation drawer, linking it to the navigation controller.
+     * This method also sets up the app bar configuration to manage navigation hierarchy.
+     */
     private void setNavigationDrawer() {
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navDrawer = binding.navDrawer;
@@ -91,7 +97,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Sets the default action bar using the material toolbar.
+     * Sets the default action bar using a MaterialToolbar.
+     * Configures the AppBarLayout to disable lift-on-scroll behavior.
      */
     private void setDefaultActionBar() {
         MaterialToolbar toolbar = findViewById(R.id.main_appbar);
@@ -114,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Handles item selections from the options menu.
+     * Displays an alert dialog when the "About Me" menu item is selected.
      *
      * @param item The menu item that was selected.
      * @return true if the item was handled; false otherwise.
@@ -132,8 +140,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Sets up the navigation controller for the app, configuring the action bar to interact
-     * with the navigation graph.
+     * Sets up the navigation controller for the app, linking it to the navigation host fragment
+     * and configuring the action bar to work with the navigation graph.
      */
     private void setNavController() {
         try {
@@ -155,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Navigates to the character details fragment, passing the character data as arguments.
+     * The data includes the character's image, name, description, and skills.
      *
      * @param characterData The character's data to display in the details fragment.
      * @param view          The view that was clicked to trigger the navigation.
@@ -171,7 +180,8 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Called when the user presses the up button in the action bar.
-     * Navigates up in the navigation stack.
+     * Navigates up in the navigation stack or delegates to the parent implementation if
+     * navigation is not handled.
      *
      * @return true if navigation is handled; false otherwise.
      */

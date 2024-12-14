@@ -4,11 +4,11 @@
         android:id="@+id/characters_list_fragment"
         android:checkable="true"
         android:icon="@drawable/ic_home"
-        android:title="@string/navigation_drawer_menu_item1" />
+        android:title="@string/navigation_drawer_menu_home" />
     <item
         android:id="@+id/settings_fragment"
         android:checkable="true"
         android:icon="@drawable/ic_settings"
-        android:title="@string/navigation_drawer_menu_item2"></item>
+        android:title="@string/navigation_drawer_menu_settings"></item>
 
 </menu>

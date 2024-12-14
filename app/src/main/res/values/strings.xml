@@ -88,16 +88,20 @@
     <string name="main_snackbar_welcome_message">Bienvenidos al mundo de Mario</string>
 
     <!-- Character details -->
+    <string name="character_detail_title">Detalles del personaje</string>
     <string name="character_detail_toast">Se ha seleccionado el personaje %s</string>
+    <string name="character_details_skills_subtitle">Habilidades</string>
 
     <!-- Context menu -->
-    <string name="context_menu_about_me">Acerca de...</string>
+    <string name="context_menu_about_me">Acerca de…</string>
     <string name="context_menu_alert_dialog_text">Aplicación desarrollada por Adriana Bellido Serrán. Versión 1.0.</string>
     <string name="context_menu_neutral_button">Cerrar</string>
-    <string name="navigation_drawer_menu_item1">Inicio</string>
-    <string name="navigation_drawer_menu_item2">Ajustes</string>
-    <string name="navigation_drawer_menu_item3">Idioma</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Navigation drawer -->
+    <string name="navigation_drawer_menu_home">Inicio</string>
+    <string name="navigation_drawer_menu_settings">Ajustes</string>
+
+    <!-- Settings fragment -->
+    <string name="settings_language_switch">Idioma: inglés/español</string>
 
 </resources>
